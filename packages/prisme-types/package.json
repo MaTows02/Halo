@@ -1,0 +1,36 @@
+{
+    "name": "@prisme/types",
+    "version": "1.15.17",
+    "private": false,
+    "description": "",
+    "keywords": [],
+    "license": "GPL-3.0-or-later",
+    "author": "Prisme",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/MaTows02/Halo.git",
+        "directory": "packages/prisme-types"
+    },
+    "types": "index.d.ts",
+    "scripts": {
+        "prepublishOnly": "tsx ./prepare.ts",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+        "@types/node": "catalog:",
+        "@prisme/discord-types": "workspace:",
+        "lodash": "catalog:",
+        "moment": "catalog:",
+        "ts-pattern": "catalog:",
+        "type-fest": "catalog:"
+    },
+    "devDependencies": {
+        "@types/fs-extra": "catalog:",
+        "fs-extra": "catalog:",
+        "tsx": "catalog:"
+    },
+    "peerDependencies": {
+        "@types/react": "catalog:",
+        "@types/react-dom": "catalog:"
+    }
+}

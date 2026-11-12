@@ -1,0 +1,11 @@
+.vc-error-card {
+    padding: 2em;
+    background-color: color-mix(in srgb, var(--status-danger, #f23f43) 15%, transparent);
+    border: 1px solid var(--status-danger, #f23f43);
+    border-radius: 5px;
+    color: var(--text-default, white);
+
+    & a:hover {
+        text-decoration: underline;
+    }
+}

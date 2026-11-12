@@ -1,0 +1,65 @@
+.vc-settings-quickActions-card {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5em;
+    padding: 0.5em;
+    margin-bottom: 1em;
+}
+
+@media (width <= 1040px) {
+    .vc-settings-quickActions-card {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.vc-settings-quickActions-pill {
+    all: unset;
+    cursor: pointer;
+    background: var(--control-secondary-background-default);
+    color: var(--control-secondary-text-default, var(--text-default));
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 8px 10px;
+    border-radius: 12px;
+    transition: 0.1s ease-out;
+    box-sizing: border-box;
+}
+
+.vc-settings-quickActions-pill:hover {
+    background: var(--control-secondary-background-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--elevation-high);
+}
+
+.vc-settings-quickActions-pill:focus-visible {
+    outline: 2px solid var(--border-focus);
+    outline-offset: 2px;
+}
+
+.vc-settings-quickActions-icon {
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    color: var(--brand-500, #5865f2);
+    background: color-mix(in srgb, var(--brand-500, #5865f2) 16%, transparent);
+    transition: background 0.15s ease-out, color 0.15s ease-out;
+}
+
+.vc-settings-quickActions-img {
+    width: 20px;
+    height: 20px;
+}
+
+.vc-settings-quickActions-text {
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.vc-settings-quickActions-pill:hover .vc-settings-quickActions-icon {
+    color: var(--white, #fff);
+    background: var(--brand-500, #5865f2);
+}

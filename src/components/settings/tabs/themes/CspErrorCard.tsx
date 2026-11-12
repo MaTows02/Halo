@@ -1,0 +1,81 @@
+/*
+ * Halo, a Discord client mod
+ * Copyright (c) 2025 Vendicated and contributors
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
+import { Button } from "@components/Button";
+import { Divider } from "@components/Divider";
+import { ErrorCard } from "@components/ErrorCard";
+import { Heading } from "@components/Heading";
+import { Link } from "@components/Link";
+import { Paragraph } from "@components/Paragraph";
+import { CspBlockedUrls, useCspErrors } from "@utils/cspViolations";
+import { t } from "@utils/i18n";
+import { Margins } from "@utils/margins";
+import { classes } from "@utils/misc";
+import { promptToRestart } from "@utils/promptToRestart";
+import { useForceUpdater } from "@utils/react";
+
+export function CspErrorCard() {
+    if (IS_WEB) return null;
+
+    const errors = useCspErrors();
+    const forceUpdate = useForceUpdater();
+
+    if (!errors.length) return null;
+
+    const isImgurHtmlDomain = (url: string) => url.startsWith("https://imgur.com/");
+
+    const allowUrl = async (url: string) => {
+        const { origin: baseUrl, host } = new URL(url);
+
+        const result = await PrismeNative.csp.requestAddOverride(baseUrl, ["connect-src", "img-src", "style-src", "font-src"], "Halo Themes");
+        if (result !== "ok") return;
+
+        CspBlockedUrls.forEach(url => {
+            if (new URL(url).host === host) {
+                CspBlockedUrls.delete(url);
+            }
+        });
+
+        forceUpdate();
+        promptToRestart("relaunch");
+    };
+
+    const hasImgurHtmlDomain = errors.some(isImgurHtmlDomain);
+
+    return (
+        <ErrorCard>
+            <Heading className={Margins.bottom8}>{t("csp.title")}</Heading>
+            <Paragraph>{t("csp.desc1")}</Paragraph>
+            <Paragraph>{t("csp.desc2")}</Paragraph>
+            <Paragraph>{t("csp.restart", { app: IS_DISCORD_DESKTOP ? "Discord" : "Vesktop" })}</Paragraph>
+
+            <Heading className={classes(Margins.top16, Margins.bottom8)}>{t("csp.urls")}</Heading>
+            <div className="vc-settings-csp-list">
+                {errors.map((url, i) => (
+                    <div key={url}>
+                        {i !== 0 && <Divider className={Margins.bottom8} />}
+                        <div className="vc-settings-csp-row">
+                            <Link href={url}>{url}</Link>
+                            <Button variant="secondary" onClick={() => allowUrl(url)} disabled={isImgurHtmlDomain(url)}>
+                                {t("csp.allow")}
+                            </Button>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            {hasImgurHtmlDomain && (
+                <>
+                    <Divider className={classes(Margins.top8, Margins.bottom16)} />
+                    <Paragraph>
+                        {t("csp.imgurBefore")}<code>https://i.imgur.com/...</code>
+                    </Paragraph>
+                    <Paragraph>{t("csp.imgurHint")}</Paragraph>
+                </>
+            )}
+        </ErrorCard>
+    );
+}

@@ -1,0 +1,117 @@
+.vc-halo-home-hero {
+    position: relative;
+    overflow: hidden;
+    padding: 20px 22px;
+    margin-bottom: 16px;
+    border-radius: 16px;
+    color: var(--white, #fff);
+    background:
+        radial-gradient(120% 140% at 0% 0%, rgb(255 255 255 / 18%) 0%, transparent 55%),
+        linear-gradient(135deg, var(--brand-500, #5865f2) 0%, var(--brand-560, #4752c4) 100%);
+    box-shadow: var(--elevation-medium);
+}
+
+.vc-halo-home-hero-glow {
+    position: absolute;
+    right: -60px;
+    top: -60px;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    border: 18px solid rgb(255 255 255 / 12%);
+    box-shadow: 0 0 60px rgb(255 255 255 / 25%);
+    pointer-events: none;
+}
+
+.vc-halo-home-hero-main {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.vc-halo-home-logo {
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgb(255 255 255 / 16%);
+    box-shadow: inset 0 0 0 1px rgb(255 255 255 / 25%);
+}
+
+.vc-halo-home-hero-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.vc-halo-home-title {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+}
+
+.vc-halo-home-tagline {
+    margin: 4px 0 0;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.vc-halo-home-source {
+    flex: none;
+    gap: 6px;
+}
+
+.vc-halo-home-description {
+    position: relative;
+    margin: 14px 0 0;
+    font-size: 14px;
+    line-height: 1.45;
+    opacity: 0.95;
+}
+
+.vc-halo-home-stats {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.vc-halo-home-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    background: rgb(0 0 0 / 16%);
+    backdrop-filter: blur(4px);
+}
+
+.vc-halo-home-stat b {
+    font-size: 20px;
+    font-weight: 800;
+    font-family: var(--font-code);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.vc-halo-home-stat span {
+    font-size: 12px;
+    opacity: 0.85;
+}
+
+.vc-halo-home-card {
+    padding: 16px;
+    margin-bottom: 16px;
+    border-radius: 12px;
+    background: var(--card-background-default, var(--background-secondary));
+    border: 1px solid var(--border-subtle, transparent);
+}
+
+.vc-halo-home-section {
+    margin-bottom: 16px;
+}

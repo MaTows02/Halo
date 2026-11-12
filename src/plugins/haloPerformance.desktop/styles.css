@@ -1,0 +1,90 @@
+.vc-halo-perf-monitor {
+    position: fixed;
+    right: 12px;
+    bottom: 12px;
+    z-index: 1000;
+    padding: 6px 10px;
+    border-radius: 8px;
+    background: var(--background-floating, var(--background-surface-highest, #111214));
+    color: var(--text-default, var(--text-normal, #dbdee1));
+    border: 1px solid var(--border-subtle, transparent);
+    box-shadow: var(--elevation-medium);
+    font: 600 12px/1.4 var(--font-code, Consolas, monospace);
+    cursor: pointer;
+    user-select: none;
+}
+
+.vc-halo-perf-monitor:hover {
+    border-color: var(--brand-500, #5865f2);
+}
+
+.vc-halo-perf-monitor-alert {
+    color: var(--status-warning, #f0b232);
+    border-color: var(--status-warning, #f0b232);
+}
+
+.vc-halo-perf-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.vc-halo-perf-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.vc-halo-perf-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 12px;
+    border-radius: 8px;
+    background: var(--card-background-default, var(--background-secondary));
+    border: 1px solid var(--border-subtle, transparent);
+    color: var(--text-default, var(--text-normal));
+}
+
+.vc-halo-perf-stat b {
+    font-size: 20px;
+    color: var(--brand-500, #5865f2);
+}
+
+.vc-halo-perf-stat span {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.vc-halo-perf-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.vc-halo-perf-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    color: var(--text-default, var(--text-normal));
+}
+
+.vc-halo-perf-table th,
+.vc-halo-perf-table td {
+    text-align: left;
+    padding: 5px 8px;
+    border-bottom: 1px solid var(--border-subtle, var(--background-modifier-accent));
+}
+
+.vc-halo-perf-table th {
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.vc-halo-perf-discord {
+    padding: 12px;
+    border-radius: 8px;
+    background: var(--card-background-default, var(--background-secondary));
+    border: 1px solid var(--border-subtle, transparent);
+}
+
